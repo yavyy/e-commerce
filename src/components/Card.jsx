@@ -5,11 +5,11 @@ function Card({product}) {
   return (
     <div className='border border-gray-200 rounded-md flex flex-col shadow-xl hover:-translate-y-1 cursor-pointer transition'>
       <div className='w-full pt-4 flex justify-center items-center'>
-        <img className='max-w-1/2' src={product.image} alt={product.title} />
+        <img className='max-w-1/2' src={product.thumbnail} alt={product.title} />
       </div>
       <section className='mt-2 p-3'>
-        <h3 className='text-xl font-semibold sm:whitespace-nowrap'>Nike Tshirt</h3>
-        <p className='tracking-tighter md:tracking-normal my-1 text-sm'>{product.title}</p>
+        <h3 className='text-xl font-semibold sm:whitespace-nowrap'>{product.title}</h3>
+        <p className='tracking-tighter md:tracking-normal my-1 text-sm'>{product.description}</p>
         <div className='flex flex-col md:flex-row justify-between items-center md:gap-4'>
           <div className='flex items-center'>
             <p className='font-bold text-gray-600 text-lg'>${product.price}</p>

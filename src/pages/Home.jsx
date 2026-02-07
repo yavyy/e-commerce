@@ -8,11 +8,13 @@ function Home() {
   useEffect(() => {
     try {
       getData()
-        .then((response) => setData(response.data))
+        .then((response) => setData(response.data.products))
     } catch (error) {
       console.error('Something went wrong while fetching data', error.message)
     }
   }, [])
+
+  console.log(data)
 
   return (
     <div className='w-3/4 mx-auto flex flex-col '>
