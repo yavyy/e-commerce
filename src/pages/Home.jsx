@@ -14,8 +14,6 @@ function Home() {
     }
   }, [])
 
-  console.log(data)
-
   return (
     <div className='w-3/4 mx-auto flex flex-col '>
       <div className='my-20 text-center p-6'>
