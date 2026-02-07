@@ -10,8 +10,12 @@ function Navbar() {
         <Link>Cart</Link>
       </div>
       <div className='flex gap-2'>
-        <button className='bg-gray-500 hover:bg-gray-600 cursor-pointer transition text-white px-4 py-1 rounded'>Login</button>
-        <button className='bg-blue-600 hover:bg-blue-700 cursor-pointer transition text-white px-4 py-1 rounded'>SignUp</button>
+        <button className='bg-gray-500 hover:bg-gray-600 cursor-pointer transition text-white px-4 py-1 rounded'>
+          <Link to={'/auth'}>Login</Link>
+        </button>
+        <button className='bg-blue-600 hover:bg-blue-700 cursor-pointer transition text-white px-4 py-1 rounded'>
+          <Link to={'/auth'}>SignUp</Link>
+        </button>
       </div>
     </nav>
   )
