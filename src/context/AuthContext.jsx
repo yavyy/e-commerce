@@ -37,7 +37,7 @@ export default function AuthProvider({ children }) {
       console.error(error.message)
     }
   }
-  
+
   function login(userData) {
     const { email, password } = userData
     try {
@@ -58,6 +58,7 @@ export default function AuthProvider({ children }) {
   }
 
   function logout() {
+    localStorage.removeItem("currentUser")
     setCurrentUser(null)
     return alert("Logged out successfully")
   }
