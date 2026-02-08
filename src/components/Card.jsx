@@ -8,7 +8,7 @@ function Card({product}) {
         <img className='max-w-1/2' src={product.thumbnail} alt={product.title} />
       </div>
       <section className='mt-2 p-3'>
-        <h3 className='text-xl font-semibold sm:whitespace-nowrap'>{product.title}</h3>
+        <h3 className='text-xl font-semibold'>{product.title}</h3>
         <p className='tracking-tighter md:tracking-normal my-2 text-sm line-clamp-2'>{product.description}</p>
         <div className='flex flex-col md:flex-row justify-between items-center md:gap-4'>
           <div className='flex items-center'>

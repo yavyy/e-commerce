@@ -1,17 +1,19 @@
 import { useState } from "react"
 import { useAuth } from "../context/AuthContext"
 import { useForm } from "react-hook-form";
-import { useNavigate } from "react-router-dom";
 
 function Auth() {
   const [mode, setMode] = useState("signup")
-  const { setUser } = useAuth();
+  const { signup, login } = useAuth();
 
   const { register, handleSubmit, formState: { errors } } = useForm()
-  const navigate = useNavigate()
+  
   const handleOnSubmit = (data) => {
-    setUser(data)
-    navigate('/')
+    if(mode === "signup") {
+      signup(data)
+    } else {
+      login(data)
+    }
   }
 
   return (
@@ -19,44 +21,47 @@ function Auth() {
       <form onSubmit={handleSubmit(handleOnSubmit)} className='border md:w-1/2 border-gray-200 p-6 shadow-md rounded'>
         {
           mode === "signup" &&
-          <div className="w-full flex flex-col">
-            <label htmlFor="fullname" className='block mb-1'>Full Name</label>
+          <div className="w-full flex flex-col gap-1">
+            <label htmlFor="fullname" className='block'>Full Name</label>
             <input
-              {...register("fullname", { required: "Full Name is required", minLength: 3 })}
+              {...register("fullname", { required: "Full Name is required", minLength: {value: 3, message: "Atleast 3 characters required"} })}
               type="text"
+              placeholder="John Doe"
               id='fullname'
               name="fullname"
-              className='border border-gray-300 px-2 py-1 w-full rounded outline-none focus:ring ring-blue-400'
+              className='border border-gray-300 px-2 py-1 w-full rounded outline-none focus:ring ring-blue-400 placeholder:text-sm'
             />
-            {errors.fullname && <p className="text-red-600 text-sm" role="alert">Full Name is required</p>}
+            {errors.fullname && <p className="text-red-600 text-sm" role="alert">{errors.fullname.message}</p>}
           </div>
         }
-        <div className="w-full flex flex-col">
-          <label htmlFor="email" className='block mb-1'>Email</label>
+        <div className="w-full flex flex-col gap-1">
+          <label htmlFor="email" className='block'>Email</label>
           <input
             {...register("email", { required: "Email is required" })}
             type="email"
+            placeholder="john@example.com"
             id='email'
             name="email"
-            className='border border-gray-300 px-2 py-1 w-full rounded outline-none ring-blue-400 focus:ring'
+            className='border border-gray-300 px-2 py-1 w-full rounded outline-none ring-blue-400 focus:ring placeholder:text-sm'
           />
-          {errors.email && <p className="text-red-600 text-sm" role="alert">Email is required</p>}
+          {errors.email && <p className="text-red-600 text-sm" role="alert">{errors.email.message}</p>}
         </div>
-        <div className="w-full my-2 flex flex-col">
-          <label htmlFor="password" className='block mb-1'>Password</label>
+        <div className="w-full flex flex-col gap-1">
+          <label htmlFor="password" className='block'>Password</label>
           <input
-            {...register("password", { required: "password is required", minLength: 3 })}
+            {...register("password", { required: "password is required", minLength: {value: 3, message: "Must be 3 characters or long"} })}
             type="password"
+            placeholder="Enter your password"
             id='password'
             name="password"
-            className='border border-gray-300 px-2 py-1 w-full rounded outline-none ring-blue-400 focus:ring'
+            className='border border-gray-300 px-2 py-1 w-full rounded outline-none ring-blue-400 focus:ring placeholder:text-sm'
           />
-          {errors.password && <p className="text-red-600 text-sm" role="alert">password is required</p>}
+          {errors.password && <p className="text-red-600 text-sm" role="alert">{errors.password.message}</p>}
         </div>
         {
           mode === "signup" ?
-            <p className="text-sm mb-2">Already have an account? <button className="text-blue-500 underline cursor-pointer" onClick={() => setMode("login")}>Login</button></p> :
-            <p className="text-sm mb-2">Don't have an account? <button className="text-blue-500 underline cursor-pointer" onClick={() => setMode("signup")}>Signup</button></p>
+            <p className="text-sm my-2">Already have an account? <button className="text-blue-500 underline cursor-pointer" type="button" onClick={() => setMode("login")}>Login</button></p> :
+            <p className="text-sm my-2">Don't have an account? <button className="text-blue-500 underline cursor-pointer" type="button" onClick={() => setMode("signup")}>Signup</button></p>
         }
         <button type="submit" className="bg-blue-600 px-3 py-1 rounded active:scale-95 hover:bg-blue-700 text-white cursor-pointer">{mode === "signup" ? "Sign Up" : "Login"}</button>
       </form>
