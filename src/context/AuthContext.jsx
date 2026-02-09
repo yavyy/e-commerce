@@ -12,6 +12,8 @@ export default function AuthProvider({ children }) {
     return JSON.parse(localStorage.getItem('currentUser')) || null
   })
 
+  const [mode, setMode] = useState("signup")
+
   const navigate = useNavigate()
 
   function signup(userData) {
@@ -64,7 +66,7 @@ export default function AuthProvider({ children }) {
   }
 
   return (
-    <AuthContext.Provider value={{ users, signup, login, currentUser, logout }}>
+    <AuthContext.Provider value={{ users, signup, login, currentUser, logout, mode, setMode }}>
       {children}
     </AuthContext.Provider>
   )

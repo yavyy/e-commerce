@@ -7,10 +7,11 @@ import AuthProvider from './context/AuthContext'
 import ProtectedRoute from './components/ProtectedRoute'
 import ReverseProtectedRoute from './components/ReverseProtectedRoute'
 import Cart from './pages/Cart'
+import ViewDetails from './pages/ViewDetails'
 
 function App() {
   return (
-    <>
+    <div className='bg-linear-to-r from-slate-300 to-slate-500 min-h-screen'>
       <AuthProvider>
         <Navbar />
         <Routes>
@@ -30,9 +31,12 @@ function App() {
               <Cart />
             </ProtectedRoute>
           } />
+          <Route path='/product'>
+            <Route path=':id' element={<ViewDetails />} />
+          </Route>
         </Routes>
       </AuthProvider>
-    </>
+    </div>
   )
 }
 
