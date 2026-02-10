@@ -16,9 +16,9 @@ function ViewDetails() {
     }
   }, [id])
   return (
-    <div className="w-3/4 h-[80vh] not-sm:min-h-screen flex justify-center items-center mx-auto relative">
+    <div className="w-3/4  flex justify-center items-center mx-auto relative">
       <h1 className="absolute top-1/2 -translate-y-1/2 left-1/2 -translate-x-1/2 font-extrabold text-4xl md:text-9xl -skew-12 px-10 pb-10 w-full text-center bg-blue-600/50 text-white backdrop-blur-3xl">BuyVy</h1>
-      <section className="bg-white/40 backdrop-blur-2xl p-4 rounded md:max-w-2/3 mx-auto flex overflow-hidden not-lg:flex-col gap-4 w-full not-sm:my-5">
+      <section className="bg-white/40 backdrop-blur-2xl p-4 rounded md:max-w-2/3 mx-auto flex overflow-hidden not-xl:flex-col gap-4 w-full mt-5 ">
         <div className="flex items-center justify-center w-fit not-lg:mx-auto p-4">
           <img className="w-full object-cover" src={productData.thumbnail} alt={productData.title} />
         </div>
