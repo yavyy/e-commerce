@@ -16,7 +16,7 @@ function Auth() {
   }
 
   return (
-    <div className="w-3/4 mx-auto min-h-screen flex justify-center items-center flex-col">
+    <div className="w-3/4 mx-auto h-[90vh] flex justify-center items-center flex-col">
       <form onSubmit={handleSubmit(handleOnSubmit)} className='border md:w-1/2 border-gray-400 backdrop-blur-2xl p-6 shadow-2xl  rounded bg-white/10'>
       <h3 className="text-center font-bold text-3xl mb-4 text-gray-200 drop-shadow-lg">{mode === "signup" ? "Create Account" : "Welcome Back"}</h3>
         {

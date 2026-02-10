@@ -4,7 +4,7 @@ import { useAuth } from '../context/AuthContext'
 function Navbar() {
   const { currentUser, logout, setMode } = useAuth()
   return (
-    <header className='sticky top-0 w-full z-10'>
+    <header className='sticky top-0 w-full z-10 not-sm:hidden'>
       <nav className='p-4 w-full bg-gray-200/5 backdrop-blur-md shadow flex justify-between items-center'>
         <h1 className='text-3xl font-extrabold cursor-pointer text-white shadow-lg active:scale-95 bg-blue-500 px-2 pb-2 select-none  -skew-6 hover:-translate-y-1 transition duration-75'>BuyVy</h1>
         <div className='flex gap-4'>
