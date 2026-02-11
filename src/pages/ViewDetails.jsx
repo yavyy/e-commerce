@@ -18,7 +18,7 @@ function ViewDetails() {
   return (
     <div className="w-3/4  flex justify-center items-center mx-auto relative">
       <h1 className="absolute top-1/2 -translate-y-1/2 left-1/2 -translate-x-1/2 font-extrabold text-4xl md:text-9xl -skew-12 px-10 pb-10 w-full text-center bg-blue-600/50 text-white backdrop-blur-3xl">BuyVy</h1>
-      <section className="bg-white/40 backdrop-blur-2xl p-4 rounded md:max-w-2/3 mx-auto flex overflow-hidden not-xl:flex-col gap-4 w-full mt-5 ">
+      <section className="bg-white/40 backdrop-blur-2xl p-4 rounded md:max-w-2/3 mx-auto flex overflow-hidden not-xl:flex-col gap-4 w-full my-5 ">
         <div className="flex items-center justify-center w-fit not-lg:mx-auto p-4">
           <img className="w-full object-cover" src={productData.thumbnail} alt={productData.title} />
         </div>
@@ -39,7 +39,7 @@ function ViewDetails() {
               </div>
             }
           </div>
-          <p className="text-2xl font-bold text-green-700">${productData.price}</p>
+          <p className="text-2xl font-bold text-blue-600">${productData.price}</p>
           <div className="flex flex-col gap-2">
             <button className="px-3 py-2 rounded-full bg-blue-500 text-white font-bold cursor-pointer transition duration-75 hover:-translate-y-0.5 active:scale-95">Add to cart</button>
             <button className="px-3 py-2 rounded-full border border-gray-200 shadow-sm font-bold cursor-pointer transition duration-75 hover:-translate-y-0.5 text-gray-700 active:scale-95">Buy Now</button>

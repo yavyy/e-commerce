@@ -43,7 +43,7 @@ function Navbar() {
         }
       </nav>
       <nav className='sticky top-0 select-auto p-4 w-full bg-gray-200/5 backdrop-blur-md shadow flex justify-between items-center sm:hidden z-20'>
-        <h1 className='text-3xl font-extrabold cursor-pointer text-white shadow-lg active:scale-95 bg-blue-500 px-2 pb-2 select-none  -skew-6 hover:-translate-y-1 transition duration-75'>BuyVy</h1>
+        <h1 onClick={() => navigate('/')} className='text-3xl font-extrabold cursor-pointer text-white shadow-lg active:scale-95 bg-blue-500 px-2 pb-2 select-none  -skew-6 hover:-translate-y-1 transition duration-75'>BuyVy</h1>
         {
           viewMenu ?
             <IoClose size={24} onClick={() => setViewMenu(false)} className='cursor-pointer' /> :
@@ -58,18 +58,29 @@ function Navbar() {
           <button onClick={() => closeAndNavigate('/')} className='text-xl cursor-pointer'>About Us</button>
           <button onClick={() => closeAndNavigate('/')} className='text-xl cursor-pointer'>Contact</button>
           <button onClick={() => closeAndNavigate('/')} className='text-xl cursor-pointer'>Help</button>
-          <button onClick={() => {
-            setMode("login")
-            closeAndNavigate("/auth")
-          }} className='bg-gray-600 hover:bg-gray-700 cursor-pointer active:scale-95 transition text-white px-5 py-1 rounded'>
-            Login
-          </button>
-          <button onClick={() => {
-            setMode("signup")
-            closeAndNavigate("/auth")
-          }} className='bg-blue-600 hover:bg-blue-700 cursor-pointer active:scale-95 transition text-white px-4 py-1 rounded'>
-            SignUp
-          </button>
+          {
+            !currentUser ?
+              <div className='flex flex-col gap-2'>
+                <button onClick={() => {
+                  setMode("login")
+                  closeAndNavigate("/auth")
+                }} className='bg-gray-600 hover:bg-gray-700 cursor-pointer active:scale-95 transition text-white px-5 py-1 rounded'>
+                  Login
+                </button>
+                <button onClick={() => {
+                  setMode("signup")
+                  closeAndNavigate("/auth")
+                }} className='bg-blue-600 hover:bg-blue-700 cursor-pointer active:scale-95 transition text-white px-4 py-1 rounded'>
+                  SignUp
+                </button>
+              </div> :
+              <div>
+                <button onClick={() => {
+                  logout()
+                  setViewMenu(false)
+                }} className='bg-gray-600 hover:bg-gray-700 cursor-pointer active:scale-95 transition text-white px-5 py-1 rounded'>Logout</button>
+              </div>
+          }
         </div>
       </div>
     </>
