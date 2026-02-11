@@ -41,8 +41,8 @@ function ViewDetails() {
           </div>
           <p className="text-2xl font-bold text-green-700">${productData.price}</p>
           <div className="flex flex-col gap-2">
-            <button className="px-3 py-2 rounded-full bg-blue-500 text-white font-bold cursor-pointer transition duration-75 hover:-translate-y-0.5">Add to cart</button>
-            <button className="px-3 py-2 rounded-full border border-gray-200 shadow-sm font-bold cursor-pointer transition duration-75 hover:-translate-y-0.5 text-gray-700">Buy Now</button>
+            <button className="px-3 py-2 rounded-full bg-blue-500 text-white font-bold cursor-pointer transition duration-75 hover:-translate-y-0.5 active:scale-95">Add to cart</button>
+            <button className="px-3 py-2 rounded-full border border-gray-200 shadow-sm font-bold cursor-pointer transition duration-75 hover:-translate-y-0.5 text-gray-700 active:scale-95">Buy Now</button>
           </div>
         </div>
       </section>
