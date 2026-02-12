@@ -21,7 +21,9 @@ function Navbar() {
   return (
     <>
       <nav className='sticky top-0 select-auto p-4 w-full bg-gray-200/5 backdrop-blur-md shadow flex justify-between items-center not-sm:hidden z-10'>
-        <h1 className='text-3xl font-extrabold cursor-pointer text-white shadow-lg active:scale-95 bg-blue-500 px-2 pb-2 select-none  -skew-6 hover:-translate-y-1 transition duration-75'>BuyVy</h1>
+        <h1 className='text-3xl font-extrabold cursor-pointer text-white shadow-lg active:scale-95 bg-blue-500 px-2 pb-2 select-none  -skew-6 hover:-translate-y-1 transition duration-75'>
+          <Link to={'/'}>BuyVy</Link>
+        </h1>
         <div className='flex gap-4'>
           <Link to={'/'}>Home</Link>
           <Link to={'/cart'}>Cart</Link>
@@ -43,7 +45,9 @@ function Navbar() {
         }
       </nav>
       <nav className='sticky top-0 select-auto p-4 w-full bg-gray-200/5 backdrop-blur-md shadow flex justify-between items-center sm:hidden z-20'>
-        <h1 onClick={() => navigate('/')} className='text-3xl font-extrabold cursor-pointer text-white shadow-lg active:scale-95 bg-blue-500 px-2 pb-2 select-none  -skew-6 hover:-translate-y-1 transition duration-75'>BuyVy</h1>
+        <h1 className='text-3xl font-extrabold cursor-pointer text-white shadow-lg active:scale-95 bg-blue-500 px-2 pb-2 select-none  -skew-6 hover:-translate-y-1 transition duration-75'>
+          <Link to={'/'}>BuyVy</Link>
+        </h1>
         {
           viewMenu ?
             <IoClose size={24} onClick={() => setViewMenu(false)} className='cursor-pointer' /> :

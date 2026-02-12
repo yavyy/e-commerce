@@ -13,17 +13,24 @@ export function CartProvider({ children }) {
       if(!response) {
         throw new Error("Failed to add product")
       }
-      const existingProduct = cart.find((product) => product.id === id)
-      if(existingProduct) {
-        setCart(prev => (
-          prev.map((item) => item.id === existingProduct.id ? {...existingProduct, quantity: item.quantity + 1} : item)
-        ))
-      } else {
-        setCart(prev => [...prev, {...response.data, quantity: 1}])
-      }
+      // const existingProduct = cart.find((product) => product.id === id)
+      // if(existingProduct) {
+      //   setCart(prev => (
+      //     prev.map((item) => item.id === existingProduct.id ? {...existingProduct, quantity: item.quantity + 1} : item)
+      //   ))
+      // } else {
+      //   setCart(prev => [...prev, {...response.data, quantity: 1}])
+      // }
+      setCart(prev => {
+        const existingProduct = prev.find(item => item.id === id)
+        if(existingProduct) {
+          return prev.map((item) => item.id === id ? {...existingProduct, quantity: item.quantity + 1} : item)
+        } else {
+          return [...prev, {...response.data, quantity: 1}]
+        }
+      })
     } catch (error) {
       console.error("Add to cart failed", error)
-      return
     }
   }
 
