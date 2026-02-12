@@ -25,8 +25,8 @@ function Card({ product }) {
 
   return (
     <div className='border border-gray-200 rounded-md flex flex-col shadow-xl hover:-translate-y-1 cursor-pointer transition bg-white/50 backdrop-blur-2xl'>
-      <div className='w-full pt-4 flex justify-center items-center'>
-        <img className='max-w-1/2' src={product.thumbnail} alt={product.title} />
+      <div className='w-3/4 pt-4 flex justify-center items-center mx-auto'>
+        <img className='' src={product.thumbnail} alt={product.title} />
       </div>
       <section className='mt-2 p-3'>
         <h3 className='text-sm md:text-xl font-semibold line-clamp-1'>{product.title}</h3>

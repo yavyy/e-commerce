@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react"
 import { getData } from "../configs/api"
 import Card from '../components/Card'
+import ProductsSkeleton from "../components/ProductsSkeleton"
 
 function Home() {
   const [data, setData] = useState([])
@@ -25,7 +26,9 @@ function Home() {
         {
           !data.length
             ? (
-              <div className="text-xl">Loading...</div>
+              Array.from({length: 12}, (_, i) => (
+                <ProductsSkeleton key={i} />
+              ))
             )
             : (
               data.map((product) => (
@@ -34,6 +37,7 @@ function Home() {
             )
         }
       </div>
+      
     </div>
   )
 }
