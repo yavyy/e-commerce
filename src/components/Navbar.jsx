@@ -31,7 +31,7 @@ function Navbar() {
         {
           currentUser ?
             <div className='flex gap-4 items-center'>
-              <p className=''>Hey, {currentUser.fullname}</p>
+              <p className=''>Hey, {currentUser.displayName}</p>
               <button onClick={logout} className='bg-gray-500 text-white px-4 py-1 cursor-pointer transition rounded hover:bg-gray-600 active:scale-95'>Logout</button>
             </div> :
             <div className='flex gap-2'>

@@ -13,14 +13,6 @@ export function CartProvider({ children }) {
       if(!response) {
         throw new Error("Failed to add product")
       }
-      // const existingProduct = cart.find((product) => product.id === id)
-      // if(existingProduct) {
-      //   setCart(prev => (
-      //     prev.map((item) => item.id === existingProduct.id ? {...existingProduct, quantity: item.quantity + 1} : item)
-      //   ))
-      // } else {
-      //   setCart(prev => [...prev, {...response.data, quantity: 1}])
-      // }
       setCart(prev => {
         const existingProduct = prev.find(item => item.id === id)
         if(existingProduct) {
@@ -34,8 +26,19 @@ export function CartProvider({ children }) {
     }
   }
 
+  function removeItemFromCart(id) {
+    setCart(prev => prev.filter(item => item.id !== id))
+  }
+
+  function updateQuantity(id, value) {
+    if(value < 1) removeItemFromCart(id)
+    setCart(prev => {
+      return prev.map((item) => item.id === id ? {...item, quantity: value} : item)
+    })
+  }
+
   return (
-    <CartContext.Provider value={{cart, addToCart}}>
+    <CartContext.Provider value={{cart, addToCart, removeItemFromCart, updateQuantity}}>
       {children}
     </CartContext.Provider>
   )
